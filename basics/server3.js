@@ -12,6 +12,12 @@ app.get('/users/:userId/books/:bookId', (req, res) => {
   res.send({p1: p1, p2: p2});
 });
 
+
+app.use((req, res, next) => {
+  req.query = "this is a query";
+  next();
+});
+
 app.get('/user', (req, res) => {
   res.send(req.query)
 })
