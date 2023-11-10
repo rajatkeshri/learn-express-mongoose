@@ -26,3 +26,12 @@ async function insert() {
     await brkfstSchema.save();
     console.log('Created Entry : ' + {eggs: 7, drink: 'Tea'});
 }
+
+async function insertMany(entries) {
+  try {
+    const result = await BreakfastModel.insertMany(entries);
+    console.log(`${result.length} entries successfully inserted.`);
+  } catch (error) {
+    console.error('An error occurred:', error);
+  }
+}
